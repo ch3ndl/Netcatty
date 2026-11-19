@@ -334,10 +334,44 @@ export const useTerminalContextActions = ({
     onHasSelectionChange?.(true);
   }, [onHasSelectionChange, termRef]);
 
+  // Smart copy/paste (right-click): copy and clear the selection when text is
+  // selected, otherwise paste from the clipboard.
+  const onSmartCopyPaste = useCallback(async () => {
+    const term = termRef.current;
+    if (!term) return;
+    const previewSelection = getHistoryPreviewSelectionFromRoot(term.element?.parentElement);
+    const hasTermSelection = term.hasSelection();
+    if (previewSelection || hasTermSelection) {
+      const selection = previewSelection
+        || getTerminalSelectionForClipboard(
+          term,
+          normalizeTextOnCopyRef?.current ?? true,
+        );
+      if (selection) {
+        try {
+          await navigator.clipboard.writeText(selection);
+        } catch (err) {
+          logger.warn("Failed to copy selection to clipboard", err);
+        }
+      }
+      if (previewSelection) {
+        window.getSelection()?.removeAllRanges();
+      }
+      if (hasTermSelection) {
+        term.clearSelection();
+      }
+      onHasSelectionChange?.(false);
+      term.focus();
+      return;
+    }
+    await onPaste();
+  }, [normalizeTextOnCopyRef, onHasSelectionChange, onPaste, termRef]);
+
   return {
     onSaveScreen,
     onCopy,
     onPaste,
+    onSmartCopyPaste,
     onUploadClipboardImage: supportsRemoteImagePaste ? onUploadClipboardImage : undefined,
     onPasteSelection,
     onSelectAll,

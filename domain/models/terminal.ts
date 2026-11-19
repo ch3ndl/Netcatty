@@ -18,7 +18,11 @@ import { normalizeMultilinePasteConfirmMinLines } from '../terminalPasteConfirm'
 // Terminal appearance settings
 export type CursorShape = 'block' | 'bar' | 'underline';
 export type TerminalMouseClickBehavior = 'context-menu' | 'paste' | 'select-word';
-export type RightClickBehavior = TerminalMouseClickBehavior;
+/**
+ * Right-click behavior. 'smart-copy-paste' copies the current selection when
+ * one exists, otherwise pastes from the clipboard (PuTTY / Windows Terminal style).
+ */
+export type RightClickBehavior = TerminalMouseClickBehavior | 'smart-copy-paste';
 export type MiddleClickBehavior = 'context-menu' | 'paste' | 'disabled';
 export type LinkModifier = 'none' | 'ctrl' | 'alt' | 'meta';
 export type TerminalEmulationType = 'xterm-256color' | 'xterm-16color' | 'xterm';

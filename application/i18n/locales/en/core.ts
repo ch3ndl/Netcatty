@@ -765,6 +765,7 @@ Highlight the focused split pane:
   'settings.terminal.behavior.disconnectedNotice.dialog': 'Dialog',
   'settings.terminal.behavior.rightClick.menu': 'Show menu',
   'settings.terminal.behavior.rightClick.paste': 'Paste',
+  'settings.terminal.behavior.rightClick.smartCopyPaste': 'Smart copy/paste (copy if selected, else paste)',
   'settings.terminal.behavior.rightClick.selectWord': 'Select word',
   'settings.terminal.behavior.copyOnSelect': 'Copy on select',
   'settings.terminal.behavior.copyOnSelect.desc': 'Automatically copy selected text. In tmux/vim with mouse mode, hold Option on macOS or Shift on Windows/Linux to select',

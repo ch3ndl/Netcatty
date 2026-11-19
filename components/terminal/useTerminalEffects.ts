@@ -1895,6 +1895,8 @@ export function useTerminalEffects(ctx: TerminalEffectsContext) {
       const behavior = terminalSettingsRef.current?.rightClickBehavior;
       if (behavior === 'paste') {
         void terminalContextActionsRef.current?.onPaste?.();
+      } else if (behavior === 'smart-copy-paste') {
+        void terminalContextActionsRef.current?.onSmartCopyPaste?.();
       } else if (behavior === 'select-word') {
         terminalContextActionsRef.current?.onSelectWord?.();
       }

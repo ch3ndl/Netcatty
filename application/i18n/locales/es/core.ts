@@ -765,6 +765,7 @@ Resalta el panel dividido enfocado:
   'settings.terminal.behavior.disconnectedNotice.dialog': 'Diálogo',
   'settings.terminal.behavior.rightClick.menu': 'Mostrar menú',
   'settings.terminal.behavior.rightClick.paste': 'Pegar',
+  'settings.terminal.behavior.rightClick.smartCopyPaste': 'Copiar/pegar inteligente (copiar si hay selección, si no pegar)',
   'settings.terminal.behavior.rightClick.selectWord': 'Seleccionar palabra',
   'settings.terminal.behavior.copyOnSelect': 'Copiar al seleccionar',
   'settings.terminal.behavior.copyOnSelect.desc': 'Copia automáticamente el texto seleccionado. En tmux/vim con modo mouse, mantén presionada Option en macOS o Shift en Windows/Linux para seleccionar',

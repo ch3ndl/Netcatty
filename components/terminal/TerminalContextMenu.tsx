@@ -56,6 +56,8 @@ export interface TerminalContextMenuProps {
   onSaveScreen?: () => void;
   onCopy?: () => void;
   onPaste?: () => void;
+  /** Right-click 'smart-copy-paste': copy when there is a selection, otherwise paste. */
+  onSmartCopyPaste?: () => void | Promise<void>;
   onUploadClipboardImage?: () => void;
   onPasteSelection?: () => void;
   onSelectAll?: () => void;
@@ -217,6 +219,7 @@ export const TerminalContextMenu: React.FC<TerminalContextMenuProps> = ({
   onSaveScreen,
   onCopy,
   onPaste,
+  onSmartCopyPaste,
   onUploadClipboardImage,
   onPasteSelection,
   onSelectAll,
@@ -356,11 +359,13 @@ export const TerminalContextMenu: React.FC<TerminalContextMenuProps> = ({
       e.preventDefault();
       if (rightClickBehavior === 'paste') {
         onPaste?.();
+      } else if (rightClickBehavior === 'smart-copy-paste') {
+        void onSmartCopyPaste?.();
       } else if (rightClickBehavior === 'select-word') {
         onSelectWord?.();
       }
     },
-    [rightClickBehavior, onPaste, onSelectWord, isAlternateScreen, getMouseTrackingMode, showReconnectAction, showContextMenuOverFullscreenApps],
+    [rightClickBehavior, onPaste, onSmartCopyPaste, onSelectWord, isAlternateScreen, getMouseTrackingMode, showReconnectAction, showContextMenuOverFullscreenApps],
   );
 
   // Always use ContextMenu wrapper to maintain consistent React tree structure

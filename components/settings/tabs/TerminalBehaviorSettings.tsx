@@ -93,6 +93,7 @@ export const TerminalBehaviorSettings: React.FC<TerminalBehaviorSettingsProps> =
             options={[
               { value: "context-menu", label: t("settings.terminal.behavior.rightClick.menu") },
               { value: "paste", label: t("settings.terminal.behavior.rightClick.paste") },
+              { value: "smart-copy-paste", label: t("settings.terminal.behavior.rightClick.smartCopyPaste") },
               { value: "select-word", label: t("settings.terminal.behavior.rightClick.selectWord") },
             ]}
             onChange={(v) => updateTerminalSetting("rightClickBehavior", v as RightClickBehavior)}

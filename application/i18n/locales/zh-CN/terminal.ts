@@ -346,6 +346,7 @@ export const zhCNTerminalMessages: Messages = {
   'settings.terminal.behavior.disconnectedNotice.dialog': '弹窗提示',
   'settings.terminal.behavior.rightClick.menu': '显示菜单',
   'settings.terminal.behavior.rightClick.paste': '粘贴',
+  'settings.terminal.behavior.rightClick.smartCopyPaste': '智能复制粘贴（有选中时复制，否则粘贴）',
   'settings.terminal.behavior.rightClick.selectWord': '选择单词',
   'settings.terminal.behavior.copyOnSelect': '选择即复制',
   'settings.terminal.behavior.copyOnSelect.desc': '自动复制选中的文本。在 tmux/vim 鼠标模式下，macOS 按住 Option，Windows/Linux 按住 Shift 拖选即可选中文本',

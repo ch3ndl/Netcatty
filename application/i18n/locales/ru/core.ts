@@ -690,6 +690,7 @@ export const ruCoreMessages: Messages = {
   'settings.terminal.behavior.disconnectedNotice.dialog': 'Диалог',
   'settings.terminal.behavior.rightClick.menu': 'Показать меню',
   'settings.terminal.behavior.rightClick.paste': 'Вставить',
+  'settings.terminal.behavior.rightClick.smartCopyPaste': 'Умное копирование/вставка (копировать выделение, иначе вставить)',
   'settings.terminal.behavior.rightClick.selectWord': 'Выбрать слово',
   'settings.terminal.behavior.copyOnSelect': 'Копировать при выделении',
   'settings.terminal.behavior.copyOnSelect.desc': 'Автоматически копировать выделенный текст. В tmux/vim с режимом мыши удерживайте Option на macOS или Shift на Windows/Linux для выделения',
